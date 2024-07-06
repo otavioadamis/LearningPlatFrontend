@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252A;
+}
+
+li, a, button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px 10%;
+}
+
+.logo {
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.nav_links {
+    list-style: none;
+
+    li {
+        display: inline-block;
+        padding: 0px 20px;
+    }
+
+    a {
+        transition: all 0.3 ease 0s;
+
+        &:hover {
+            color: #0088a9;
+        }
+    }
+}
+
+button {
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+        background-color: rgba(0,136,169,0.8);
+    }
+}
+
+.menu-icon {
+    display: none;
+    top: 80px;
+}
+
+.search {
+    --search_padding: 5px;
+
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: var(--search_padding);
+    border-radius: 28px;
+    background: #f6f6f6;
+    width: 255px;
+    transition: box-shadow 0.25s;
+
+    &:focus-within {
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+    }
+}
+
+.search-input {
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    margin-left: var(--search_padding);
+    background: transparent;
+    outline: none;
+    border: none;
+    flex: 1;
+
+    &::placeholder{
+        color: rgba(0, 0, 0, 0.25);
+    }
+}
+
+.search-icon {
+    background: transparent;
+    color: rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (min-width: 128px) and (max-width: 1100px) {
+    
+    .nav_links{
+        position: fixed;
+        transition: 0.4s ease-in-out;
+        right: -280px;
+        top: 65px;
+        width: 280px;
+        height: 100%;
+
+        li {
+            display: block;
+            text-align: left;
+            margin: 0;
+            padding: 10px 0 10px 20px;
+            border-bottom: 1px solid grey;
+        }
+    }
+
+   .menu-icon {
+        display: inline-table;
+        padding: 10px;
+    }
+
+    .nav_links_mobile {
+        right: 0;
+        transition: 0.4s ease-in-out;
+    }
+}
