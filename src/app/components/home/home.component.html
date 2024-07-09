@@ -1,1 +1,10 @@
 <app-header></app-header>
+Novidades
+<div class="container">
+    <div class="row">
+        <div class="col" *ngFor="let course of courses">
+            <app-card [course]="course"></app-card>
+        </div>
+    </div>
+</div>
+
