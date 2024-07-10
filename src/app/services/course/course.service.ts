@@ -14,4 +14,10 @@ export class CourseService {
   getAllCourses():Observable<Course[]>{
     return this.http.get<Course[]>(`${this.apiUrl}api/Course`);
   }
+
+  getRecentCoursesByCategory(category: string): Observable<Course[]>{
+    const encodedCategory = encodeURIComponent(category);
+    return this.http.get<Course[]>(`${this.apiUrl}api/Course/${encodedCategory}`)
+  }
+
 }

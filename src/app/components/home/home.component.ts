@@ -16,10 +16,22 @@ import { CardComponent } from '../card/card.component';
 export class HomeComponent implements OnInit {
 
   courses: Course[] = [];
+  selectedCategory: string = "C#"; 
+  language: string = 'C#';
   constructor(private courseService:CourseService) {}
   
   ngOnInit(): void {
-    this.courseService.getAllCourses().subscribe(
+    this.getCourses(this.selectedCategory);
+  }
+
+  onCategoryClick(category: string): void {
+    this.selectedCategory = category;
+    this.language = category;
+    this.getCourses(category);
+  }
+
+  getCourses(category: string): void {
+    this.courseService.getRecentCoursesByCategory(category).subscribe(
       data => this.courses = data
     );
   }
