@@ -1,14 +1,5 @@
 <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Active</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#">Disabled</a>
+    <li class="nav-item" *ngFor="let tab of tabsArray; let sr = index" (click)="setTab(sr)">
+      <a class="nav-link " href="#" [ngClass]="activatedTab == sr ? 'active': '' ">{{tab}}</a>
     </li>
   </ul>

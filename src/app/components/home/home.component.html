@@ -12,24 +12,11 @@
 </div>
 
 <div class="category-container">
-    <ul class="nav nav-tabs">
-        <li class="nav-item" (click) = "onCategoryClick('C#')">
-          <a class="nav-link active">C#</a>
-        </li>
-        <li class="nav-item" (click) = "onCategoryClick('Javascript')">
-          <a class="nav-link">Javascript</a>
-        </li>
-        <li class="nav-item" (click) = "onCategoryClick('Java')">
-            <a class="nav-link">Java</a>
-          </li>
-        <li class="nav-item" (click) = "onCategoryClick('Python')">
-          <a class="nav-link">Python</a>
-        </li>
-      </ul>
+    <app-tabs [tabsArray]="tabs" (onTabChange)="onCategoryClick($event)"></app-tabs>
     <div class="cards-container">
         <div class="cards-heading">
             <h2>
-                Desenvolva suas habilidades de programação em {{ language }}
+                Desenvolva suas habilidades de programação em {{ selectedCategory }}
             </h2>
             <span>Ver mais</span>
         </div>

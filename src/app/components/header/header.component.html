@@ -1,16 +1,15 @@
 <header class="app-header">
-    <img class="logo" src="" alt="logo">
+    <img class="logo" src="#" alt="logo">
     <div class="search">
         <mat-icon class="search-icon">search</mat-icon>
-        <input class="search-input" type="search" placeholder="Pesquisar">
+        <input class="search-input" type="search" placeholder="Procure um curso">
     </div>
     <mat-icon class="menu-icon" (click)="openMenu()">{{menuIcon}}</mat-icon>
         <nav>
             <ul class="nav_links" [class.nav_links_mobile]="menuValue"> 
-                <li (click)="closeMenu()"><a href="#">Lorem Ipsum</a></li>
-                <li (click)="closeMenu()"><a href="#">Lorem Ipsum</a></li>
-                <li (click)="closeMenu()"><a href="#">Lorem Ipsum</a></li>
+                <li (click)="closeMenu()"><a href="#">Todos os cursos</a></li>
+                <li (click)="closeMenu()"><a href="#">Cadastre-se</a></li>
+                <a class="login-btn" href="#"><button>Entrar</button></a> 
             </ul>
         </nav>
-        <a class="login-btn" href="#"><button>Entrar</button></a> 
 </header>
