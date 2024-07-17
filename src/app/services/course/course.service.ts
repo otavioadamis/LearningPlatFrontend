@@ -11,13 +11,17 @@ export class CourseService {
 
   constructor(private http: HttpClient) { }
   
-  getAllCourses():Observable<Course[]>{
+  getAllCourses(): Observable<Course[]>{
     return this.http.get<Course[]>(`${this.apiUrl}api/Course`);
   }
 
   getRecentCoursesByCategory(category: string): Observable<Course[]>{
     const encodedCategory = encodeURIComponent(category);
     return this.http.get<Course[]>(`${this.apiUrl}api/Course/${encodedCategory}`)
+  }
+
+  getCourseById(id: string): Observable<Course>{
+    return this.http.get<Course>(`${this.apiUrl}api/Course/${id}`);
   }
 
 }
