@@ -1,16 +1,31 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon'
+import { UserService } from '../../services/user/user.service';
+import { User } from '../../models/user/User';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatIconModule],
+  imports: [MatIconModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   menuValue:boolean = false;
   menuIcon:string = 'menu'
+
+  constructor(private userService: UserService) {
+
+  }
+
+  getUserDetails(): User | null {
+    return this.userService.getCurrentUser();
+  }
+
+  isLoggedIn(): boolean {
+    return this.userService.isLogged();
+  }
 
   openMenu(){
     this.menuValue =! this.menuValue;

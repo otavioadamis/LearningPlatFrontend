@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LoginRequest } from '../../models/auth/LoginRequest';
 import { UserService } from '../../services/user/user.service';
+import { Router } from '@angular/router';
+import { LoginResponse } from '../../models/auth/LoginResponse';
 
 
 @Component({
@@ -13,14 +15,20 @@ import { UserService } from '../../services/user/user.service';
 })
 export class LoginPageComponent {
 
-loginReq: LoginRequest;  
-
-constructor(private userService: UserService) {
+loginReq: LoginRequest;
+constructor(private userService: UserService, private router: Router) {
   this.loginReq = new LoginRequest();
 }
 
 onLogin(): void {
-  this.userService.login(this.loginReq);
+  this.userService.login(this.loginReq).subscribe(
+    (res:LoginResponse) => {
+      localStorage.setItem('Token', res.token);
+      this.userService.setCurrentUser(res.user);
+      this.router.navigateByUrl('');
+    }, error => {
+      console.log(error);
+    }
+  );
 }
-
 }
