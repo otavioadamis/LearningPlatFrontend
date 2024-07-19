@@ -29,6 +29,10 @@ export class UserService {
     return this.currentUser;
   }
 
+  logout(): void {
+    localStorage.removeItem('Token')
+  }
+
   isLogged(): boolean {
       if(isPlatformBrowser(this.platformId)){
         const token = this.getToken();
@@ -38,5 +42,5 @@ export class UserService {
       return true;
   }
 
-  getToken = ():string|null => localStorage.getItem('Token')
+  private getToken = ():string|null => localStorage.getItem('Token')
 }

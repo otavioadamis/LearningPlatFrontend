@@ -3,11 +3,12 @@ import { MatIconModule } from '@angular/material/icon'
 import { UserService } from '../../services/user/user.service';
 import { User } from '../../models/user/User';
 import { CommonModule } from '@angular/common';
+import { ProfileMenuComponent } from '../profile-menu/profile-menu.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatIconModule, CommonModule],
+  imports: [MatIconModule, CommonModule, ProfileMenuComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
