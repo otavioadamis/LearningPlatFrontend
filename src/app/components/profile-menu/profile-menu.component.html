@@ -1,16 +1,9 @@
-<div class="action">
-    <div class="profile" (click)="toggleDropdown();">
-        {{userName}}
-    </div>
-    <div *ngIf="isDropdownOpen" class="menu">
-      <h3>Website Designer</h3>
-      <ul>
-        <li>
-            <a href="#">My profile</a>
-        </li>
-        <li>
-            <a href="#">Logout</a>
-        </li>
-      </ul>
-    </div>
+<div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  {{userName}}
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Meu perfil</a>
+    <a class="dropdown-item" href="#">Sair</a>
+  </div>
 </div>

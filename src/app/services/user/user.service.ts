@@ -5,6 +5,7 @@ import { LoginRequest} from '../../models/auth/LoginRequest';
 import { LoginResponse } from '../../models/auth/LoginResponse';
 import { User } from '../../models/user/User';
 import { isPlatformBrowser } from '@angular/common';
+import { LocalStorageService } from '../localstorage/local-storage.service';
 
 
 @Injectable({
@@ -15,7 +16,16 @@ export class UserService {
   readonly apiUrl = "http://localhost:5102/"
   private currentUser: User | null = null;
   
-  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private localStorage: LocalStorageService  
+  ) {
+      const storedUser = localStorage.getItem('CurrentUser');
+      if (storedUser) {
+        this.currentUser = JSON.parse(storedUser);
+    }
+  }
 
   login(loginRequest: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.apiUrl}api/User/login`, loginRequest);
@@ -23,14 +33,21 @@ export class UserService {
 
   setCurrentUser(user: User): void {
     this.currentUser = user;
+    this.localStorage.setItem('UserInfo', JSON.stringify(user))
   }
 
   getCurrentUser(): User | null {
+    if (!this.currentUser) {
+      const storedUser = localStorage.getItem('UserInfo');
+      if (storedUser) {
+        this.currentUser = JSON.parse(storedUser);
+      }
+    }
     return this.currentUser;
   }
 
   logout(): void {
-    localStorage.removeItem('Token')
+    this.localStorage.clear();
   }
 
   isLogged(): boolean {
@@ -42,5 +59,5 @@ export class UserService {
       return true;
   }
 
-  private getToken = ():string|null => localStorage.getItem('Token')
+  private getToken = ():string|null => this.localStorage.getItem('Token');
 }

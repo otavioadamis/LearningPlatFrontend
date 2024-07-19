@@ -9,10 +9,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './profile-menu.component.scss'
 })
 export class ProfileMenuComponent {
-  isDropdownOpen: boolean = false;
   @Input() userName?: string | null;
-  
-  toggleDropdown() {
-    this.isDropdownOpen = !this.isDropdownOpen;
-  }
 }
