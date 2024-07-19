@@ -23,8 +23,7 @@ constructor(private userService: UserService, private router: Router) {
 onLogin(): void {
   this.userService.login(this.loginReq).subscribe(
     (res:LoginResponse) => {
-      localStorage.setItem('Token', res.token);
-      this.userService.setCurrentUser(res.user);
+      this.userService.setCurrentUser(res);
       this.router.navigateByUrl('');
     }, error => {
       console.log(error);
