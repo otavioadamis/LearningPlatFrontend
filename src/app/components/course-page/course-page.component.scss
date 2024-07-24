@@ -1,0 +1,73 @@
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.course-img {
+    background-color: beige;
+    width: 380px;
+}
+
+.course-details-content {
+    font-size: medium;
+    padding-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+
+    .course-title {
+
+    }
+
+    .course-status {
+        color: blue;
+    }
+
+
+    .course-enrolls-number{
+        display: inline-flexbox;
+        align-items: center;
+        justify-content: space-between;
+
+        .teste {
+            padding: 0px;
+            margin: 0px;
+            width: 50px;
+        }
+
+        .students-number {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 1px 1px 3px;
+            padding: 1.8px;
+        }
+
+        .enrolls-text {
+            margin-left: 10px;
+        }
+    }
+
+    .course-enroll-button {
+        margin-top: 20px;
+    }
+}
+
+.video-card{
+    position: relative;
+    align-items: center;
+    display: flex;
+
+    p {
+        margin: 0px;
+    }
+    
+    span {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 10px;
+    }
+}
+

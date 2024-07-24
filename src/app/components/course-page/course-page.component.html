@@ -1,7 +1,68 @@
 <app-header></app-header>
-<div *ngIf="course">
-    <div class="course-details">
-        <h2>{{course.title}}</h2>
-        <p>{{course.description}}</p>
+<div class="container-fluid">
+    <div *ngIf="course">
+        
+        <div class="course-header-details">
+            <div class="row">
+                <div class="col-4">
+                    <img class="course-img" src="../../../assets/images/speed.png" alt="course-cover">
+                </div>
+                <div class="col-8">
+                    <div class="course-details-content">
+                        <div class="course-title">
+                            <h2>{{course.title}}</h2>
+                        </div>
+                        <div class="course-status">
+                            <span>Completo</span>
+                        </div>
+                        <div class="course-enrolls-number">
+                            <span class="students-number">223</span>
+                            <span class="enrolls-text">Alunos</span>
+                        </div>
+                        <div class="course-enroll-button">
+                            <button mat-fab extended>
+                                <mat-icon>add</mat-icon> Ingressar
+                              </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="course-container">
+            <div class="row">
+                <div class="col-8">
+                    <mat-tab-group>
+                        <mat-tab label="Descrição">
+                            {{course.description}}
+                        </mat-tab>
+                        <mat-tab label="Aulas"> <!-- todo: isso de dentro pode ser outro component -->
+                            <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title> Introdução </mat-panel-title>
+                                  <mat-panel-description> Quantidade de aulas do módulo </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <mat-card appearance="outlined">
+                                    <mat-card-content class="video-card">
+                                        <mat-icon>play_arrow</mat-icon>
+                                        <p>Aula1</p>
+                                        <span>
+                                            <mat-icon>access_time_filled</mat-icon> 00:13:02
+                                        </span>
+                                    </mat-card-content>
+                                  </mat-card>
+                              </mat-expansion-panel>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+                <div class="col-4">
+                    <div class="side-bar">
+                        <div class="icons"><mat-icon>menu_book</mat-icon>Quantidade de aulas</div>
+                        <div class="icons"><mat-icon>access_time</mat-icon>Horas de conteúdo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+

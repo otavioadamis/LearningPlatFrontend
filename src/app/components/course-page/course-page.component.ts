@@ -4,11 +4,17 @@ import { CourseService } from '../../services/course/course.service';
 import { ActivatedRoute } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { CommonModule } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @Component({
   selector: 'app-course-page',
   standalone: true,
-  imports: [HeaderComponent, CommonModule],
+  imports: [HeaderComponent, CommonModule, MatTabsModule, MatIconModule, MatExpansionModule, MatCardModule, MatButtonModule],
   templateUrl: './course-page.component.html',
   styleUrl: './course-page.component.scss'
 })
