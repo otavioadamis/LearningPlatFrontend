@@ -9,13 +9,13 @@
             <ul class="nav_links" [class.nav_links_mobile]="menuValue"> 
                 <li (click)="closeMenu()"><a href="#">Todos os cursos</a></li>
 
-                <li *ngIf="isLoggedIn(); else loginTemplate" (click)="closeMenu()">
+                <li *ngIf="isLoggedIn(); else loginTemplate">
                     <app-profile-menu [userName]="getUserDetails()?.name"></app-profile-menu>
                   </li>
                   
                   <ng-template #loginTemplate>
                     <li (click)="closeMenu()"><a href="#">Cadastre-se</a></li>
-                    <a class="login-btn" href="#"><button>Entrar</button></a>
+                    <a class="login-btn" routerLink="/login"><button>Entrar</button></a>
                   </ng-template>
             </ul>
         </nav>

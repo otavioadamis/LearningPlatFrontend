@@ -1,1 +1,7 @@
-<p>{{course.description}}</p>
+<app-header></app-header>
+<div *ngIf="course">
+    <div class="course-details">
+        <h2>{{course.title}}</h2>
+        <p>{{course.description}}</p>
+    </div>
+</div>

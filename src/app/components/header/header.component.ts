@@ -4,11 +4,12 @@ import { UserService } from '../../services/user/user.service';
 import { User } from '../../models/user/User';
 import { CommonModule } from '@angular/common';
 import { ProfileMenuComponent } from '../profile-menu/profile-menu.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatIconModule, CommonModule, ProfileMenuComponent],
+  imports: [MatIconModule, CommonModule, ProfileMenuComponent, RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
