@@ -1,0 +1,44 @@
+.container {
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.course-image-container {
+    padding: 30px;
+    background: #6990f2;
+    border-radius: 5px;
+    text-align: center;
+
+    .header {
+        color: #fff;
+        font-size: 27px;
+        font-weight: 600;
+    }
+
+    .upload-area {
+        height: 167px;
+        border-radius: 5px;
+        border: 2px dashed #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        i {
+            font-size: 50px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-top: 15px;
+        }
+    }
+
+    .upload-area :where(i,p){
+        color: #fff;
+    }
+}

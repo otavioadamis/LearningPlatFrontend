@@ -36,22 +36,10 @@
                         <mat-tab label="Descrição">
                             {{course.description}}
                         </mat-tab>
-                        <mat-tab label="Aulas"> <!-- todo: isso de dentro pode ser outro component -->
-                            <mat-expansion-panel hideToggle>
-                                <mat-expansion-panel-header>
-                                  <mat-panel-title> Introdução </mat-panel-title>
-                                  <mat-panel-description> Quantidade de aulas do módulo </mat-panel-description>
-                                </mat-expansion-panel-header>
-                                <mat-card appearance="outlined">
-                                    <mat-card-content class="video-card">
-                                        <mat-icon>play_arrow</mat-icon>
-                                        <p>Aula1</p>
-                                        <span>
-                                            <mat-icon>access_time_filled</mat-icon> 00:13:02
-                                        </span>
-                                    </mat-card-content>
-                                  </mat-card>
-                              </mat-expansion-panel>
+                        <mat-tab label="Aulas">
+                            <app-chapters [chapters]="chapters">
+
+                            </app-chapters>
                         </mat-tab>
                     </mat-tab-group>
                 </div>

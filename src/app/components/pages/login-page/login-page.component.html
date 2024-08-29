@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <form class="mx-auto" [formGroup]="form">
+        <h4 class="text-center">Login</h4>
+        <div class="mb-3 mt-5">
+            <label class="form-label">Email</label>
+            <input matInput formControlName="email" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Senha</label>
+            <input matInput formControlName="password" class="form-control"/>
+            <div class="form-text mt-3">Esqueci minha senha.</div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-5" (click)="onLogin()" [disabled]="!form.valid">Login</button>
+        <p class="register">Não tem uma conta? Crie <a routerLink="/signup">aqui</a></p>
+    </form>
+</div>

@@ -1,0 +1,16 @@
+.video-card{
+    position: relative;
+    align-items: center;
+    display: flex;
+
+    p {
+        margin: 0px;
+    }
+    
+    span {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 10px;
+    }
+}

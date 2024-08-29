@@ -1,10 +1,11 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginRequest} from '../../models/auth/LoginRequest';
 import { LoginResponse } from '../../models/auth/LoginResponse';
 import { User } from '../../models/user/User';
 import { LocalStorageService } from '../localstorage/local-storage.service';
+import { SignupRequest } from '../../models/auth/SignupRequest';
 
 
 @Injectable({
@@ -20,6 +21,10 @@ export class UserService {
       if (storedUser) {
         this.currentUser = JSON.parse(storedUser);
     }
+  }
+
+  signup(signupRequest: SignupRequest): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(`${this.apiUrl}api/User`, signupRequest)
   }
 
   login(loginRequest: LoginRequest): Observable<LoginResponse> {
