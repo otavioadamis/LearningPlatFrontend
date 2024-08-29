@@ -24,9 +24,10 @@ export class CoursePageComponent implements OnInit {
 
   course!: Course;
   chapters!: Chapter[];
-  constructor(private courseService:CourseService, private activatedRoute: ActivatedRoute) 
-  {
-    activatedRoute.params.subscribe((params) => {
+  constructor(private courseService:CourseService, private activatedRoute: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
       if(params['id']){
         this.getCourseById(params['id']);
         this.getChaptersByCourseId(params['id']);
@@ -34,7 +35,20 @@ export class CoursePageComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
+  getVideosQuantity(): number {
+    let videosNumber = 0;
+    const chapters = this.chapters;
+    
+    if(chapters === undefined){
+      return 0;
+    }
+
+    for(let i = 0; i < chapters.length; i++){
+      for(let j = 0; j < chapters[i].videos.length; j++){
+        videosNumber++;
+      }
+    }
+    return videosNumber;
   }
 
   getChaptersByCourseId(id: string) {
