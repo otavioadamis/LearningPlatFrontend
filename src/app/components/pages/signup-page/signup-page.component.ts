@@ -53,7 +53,7 @@ export class SignupPageComponent {
 
     this.userService.signup(signupReq).subscribe(
       (res: LoginResponse) => {
-        this.userService.setCurrentUser(res);
+        this.userService.setToken(res.token);
         this.router.navigateByUrl('');
       }, error => {
         console.log(error);

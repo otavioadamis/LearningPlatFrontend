@@ -24,7 +24,6 @@ export class LoginPageComponent {
 }
 
 onLogin(): void {
-  
   if(this.form.invalid){
     console.log("form invalido");
     return;
@@ -42,7 +41,7 @@ onLogin(): void {
 
   this.userService.login(loginReq).subscribe(
     (res:LoginResponse) => {
-      this.userService.setCurrentUser(res);
+      this.userService.setToken(res.token);
       this.router.navigateByUrl('');
     }, error => {
       console.log(error);

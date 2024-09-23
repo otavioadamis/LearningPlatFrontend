@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon'
 import { UserService } from '../../services/user/user.service';
 import { User } from '../../models/user/User';
@@ -13,16 +13,18 @@ import { RouterModule } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit  {
   menuValue:boolean = false;
-  menuIcon:string = 'menu'
+  menuIcon:string = 'menu';
+  userName: string = '';
+
 
   constructor(private userService: UserService) {
 
   }
 
-  getUserDetails(): User | null {
-    return this.userService.getCurrentUser();
+  ngOnInit(): void {
+    this.getLoggedInUser();
   }
 
   isLoggedIn(): boolean {
@@ -37,5 +39,9 @@ export class HeaderComponent {
   closeMenu(){
     this.menuValue = false;
     this.menuIcon = 'menu'
+  }
+
+  getLoggedInUser(): void | null {
+    this.userService.getUserByAuthToken()?.subscribe(data => this.userName = data.name);
   }
 }

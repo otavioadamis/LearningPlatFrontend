@@ -5,6 +5,7 @@ import { CourseService } from '../../services/course/course.service';
 import { Course } from '../../models/course/Course';
 import { CardComponent } from '../card/card.component';
 import { TabsComponent } from '../tabs/tabs.component';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ export class HomeComponent implements OnInit {
   courses: Course[] = [];
   selectedCategory: string = "C#"; 
   
-  constructor(private courseService:CourseService) {}
+  constructor(private courseService:CourseService) {
+  }
   
   ngOnInit(): void {
     this.getCourses(this.selectedCategory);

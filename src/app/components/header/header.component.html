@@ -5,18 +5,18 @@
         <input class="search-input" type="search" placeholder="Procure um curso">
     </div>
     <mat-icon class="menu-icon" (click)="openMenu()">{{menuIcon}}</mat-icon>
-        <nav>
-            <ul class="nav_links" [class.nav_links_mobile]="menuValue"> 
-                <li (click)="closeMenu()"><a href="#">Todos os cursos</a></li>
+    <nav>
+        <ul class="nav_links" [class.nav_links_mobile]="menuValue">
+            <li (click)="closeMenu()"><a href="#">Todos os cursos</a></li>
 
-                <li *ngIf="isLoggedIn(); else loginTemplate">
-                    <app-profile-menu [userName]="getUserDetails()?.name"></app-profile-menu>
-                  </li>
-                  
-                  <ng-template #loginTemplate>
-                    <li (click)="closeMenu()"><a href="#">Cadastre-se</a></li>
-                    <a class="login-btn" routerLink="/login"><button>Entrar</button></a>
-                  </ng-template>
-            </ul>
-        </nav>
+            <li *ngIf="isLoggedIn(); else loginTemplate">
+                <app-profile-menu [userName]="userName"></app-profile-menu>
+            </li>
+
+            <ng-template #loginTemplate>
+                <li (click)="closeMenu()"><a href="#">Cadastre-se</a></li>
+                <a class="login-btn" routerLink="/login"><button>Entrar</button></a>
+            </ng-template>
+        </ul>
+    </nav>
 </header>
