@@ -27,7 +27,7 @@ export class UserService {
   }
 
   signup(signupRequest: SignupRequest): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${this.apiUrl}api/User`, signupRequest)
+    return this.http.post<LoginResponse>(`${this.apiUrl}api/User`, signupRequest);
   }
 
   login(loginRequest: LoginRequest): Observable<LoginResponse> {
@@ -52,16 +52,17 @@ export class UserService {
     const userId = this.decodeTokenReturnId(token);
     return this.http.get<User>(`${this.apiUrl}api/User/${userId}`);
   }
+ 
+  setToken(token: string): void {
+    this.localStorage.setItem('Token', token);
+  }
+
+  getToken = (): string | null => this.localStorage.getItem('Token');
 
   private decodeTokenReturnId(token: string): string | undefined {
     if (!token) { return; }
     const decode = jwtDecode<JwtProps>(token);
     return decode.id;
   }
- 
-  setToken(token: string): void {
-    this.localStorage.setItem('Token', token);
-  }
 
-  private getToken = (): string | null => this.localStorage.getItem('Token');
 }

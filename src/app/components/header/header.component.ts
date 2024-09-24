@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
 export class HeaderComponent implements OnInit  {
   menuValue:boolean = false;
   menuIcon:string = 'menu';
-  userName: string = '';
+  user: User | undefined;
 
 
   constructor(private userService: UserService) {
@@ -42,6 +42,6 @@ export class HeaderComponent implements OnInit  {
   }
 
   getLoggedInUser(): void | null {
-    this.userService.getUserByAuthToken()?.subscribe(data => this.userName = data.name);
+    this.userService.getUserByAuthToken()?.subscribe(data => this.user = data);
   }
 }

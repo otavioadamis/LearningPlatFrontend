@@ -10,7 +10,7 @@
             <li (click)="closeMenu()"><a href="#">Todos os cursos</a></li>
 
             <li *ngIf="isLoggedIn(); else loginTemplate">
-                <app-profile-menu [userName]="userName"></app-profile-menu>
+                <app-profile-menu [user]="user"></app-profile-menu>
             </li>
 
             <ng-template #loginTemplate>

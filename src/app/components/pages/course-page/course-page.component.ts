@@ -11,6 +11,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { ChaptersComponent } from '../../chapters/chapters.component';
 import { Chapter } from '../../../models/course/Chapter';
+import { StudentService } from '../../../services/student/student.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class CoursePageComponent implements OnInit {
 
   course!: Course;
   chapters!: Chapter[];
-  constructor(private courseService:CourseService, private activatedRoute: ActivatedRoute) {}
+  constructor(private courseService:CourseService, private activatedRoute: ActivatedRoute, private studentService: StudentService) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -35,14 +36,16 @@ export class CoursePageComponent implements OnInit {
     })
   }
 
+  enroll(): void {
+    this.studentService.enroll(this.course.id);
+  }
+
   getVideosQuantity(): number {
     let videosNumber = 0;
-    const chapters = this.chapters;
-    
+    const chapters = this.chapters;  
     if(chapters === undefined){
       return 0;
     }
-
     for(let i = 0; i < chapters.length; i++){
       for(let j = 0; j < chapters[i].videos.length; j++){
         videosNumber++;
